@@ -2,7 +2,9 @@
 
 ## Data Set Information
 
-This dataset describes accelerometer and gyroscope signal readings from a group of 30 volunteers performing six different activities. The original complete dataset can be found in [Reference](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones). Technical details on feature construction can be found in the reference.
+This dataset describes accelerometer and gyroscope signal readings from a group of 30 volunteers performing six different activities. The original complete dataset can be found [here](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones). Technical details on the measured signal and feature construction are also given in that reference.
+
+This repository generates [tidy data](https://github.com/jotinha/datasharing)) with a subset of the original features.
 
 ## Running
 
