@@ -22,7 +22,7 @@ source('run_analysis.R')
 
 Two files will be generated
 
-## tidyDataAll.csv
+## tidyDataAll.txt
 
 This is a modified dataset which contains only those feature associated with mean and standard deviation operations on the time and frequency domain readings of the various signals. For the frequency domain, the weighted averages of the frequency components is also included. 
 
@@ -32,7 +32,7 @@ There are 10299 rows obtained by merging the test and train datasets from the so
 
 The features are specified in `CodeBook.md`.
 
-## tidyDataAverages.csv
+## tidyDataAverages.txt
 
 This data table contains the averages of the features for each subject,activity pair
 
