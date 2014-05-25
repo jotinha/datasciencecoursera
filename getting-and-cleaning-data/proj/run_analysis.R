@@ -12,16 +12,24 @@ loadTable <- function(folder) {
    #get feature names
    featureNames <- read.table(paste(DATADIR,'features.txt',sep=""))
    featureNames <- featureNames[featureNames[,1],2] #adjust by index of feature names given in first column of features.tx
-   colnames(dat) <- featureNames
+   #fix BodyBody in features names
+   featureNames <- gsub('BodyBody','Body',featureNames,fixed=T)
    
+   colnames(dat) <- featureNames
    #extract only features we want, those with mean() and std() in the name
-   cols <- grepl('mean()',featureNames,fixed=T) | grepl('std()',featureNames,fixed=T)
-   if (sum(cols) != 66) stop("Expecting 66 columns")
+   cols <- grepl('mean()',featureNames,fixed=T) | 
+           grepl('meanFreq()',featureNames,fixed =T) |
+           grepl('std()',featureNames,fixed=T )
+   
+   if (sum(cols) != 79) stop("Expecting 80 columns")
    dat <- subset(dat,select=cols)
    
-   #rename colnames them to something more readable
-   colnames(dat) <- gsub("-mean\\(\\)-?","Mean",colnames(dat))
-   colnames(dat) <- gsub("-std\\(\\)-?","Std",colnames(dat))
+   #rename colnames them to something more readable (see CodeBook.md)
+   colnames(dat) <- gsub("-mean\\(\\)-?([XYZ])?","\\1Mean",colnames(dat))
+   colnames(dat) <- gsub("-meanFreq\\(\\)-?([XYZ])?","\\1WeightedMean",colnames(dat))
+   colnames(dat) <- gsub("-std\\(\\)-?([XYZ])?","\\1Std",colnames(dat))
+   colnames(dat) <- gsub("^t","",colnames(dat))
+   colnames(dat) <- gsub("^f","freq",colnames(dat))
       
    #load activities -----------------------------------------------------------------
    y <- read.table(paste(dir,'y_',folder,'.txt',sep=""))
@@ -36,17 +44,6 @@ loadTable <- function(folder) {
    dat
 }
 
-loadAll <- function() {
-   train <- loadTable('train')
-   test <- loadTable('test')
-   
-   #make sure they have the same columns for fast merging
-   stopifnot(all(colnames(train) == colnames(test)))
-   
-   rbind(train,test)
-   
-}
-
 createAverageTables <- function(dat) {
    aggregate(. ~ activity + subject, data=dat, FUN=mean)
 }
@@ -57,7 +54,14 @@ saveData <- function(tidyDataAll,tidyDataAverages) {
    write.csv2(tidyDataAverages,file="tidyDataAverages.csv",row.names=F)
 }
 
-dat <- loadAll()
+train <- loadTable('train')
+test <- loadTable('test')
+
+#make sure they have the same columns for fast merging
+stopifnot(all(colnames(train) == colnames(test)))
+
+dat <- rbind(train,test)
+
 dat2 <- createAverageTables(dat)
 saveData(dat,dat2)
 
