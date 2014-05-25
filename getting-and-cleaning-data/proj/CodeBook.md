@@ -1,14 +1,10 @@
-# Human Activity Recognition Using Smartphones Data Set 
+# Code Book
 
-## Data Set Information
+## Feature selection
 
-This dataset describes accelerometer and gyroscope signal readings from a group of 30 volunteers performing six different activities. The original complete dataset is described in `UCI HAR Dataset/Readme.md` and `UCI HAR Dataset/features_info.txt`.
+The features in this dataset are taken from the "Human Activity Recognition Using Smartphones Data Set" and are described in more detail in `UCI HAR Dataset/Readme.txt` and `UCI HAR Dataset/features_info.txt`. These include several estimations based on the following signals (both in the time and frequency domain): body and gravity linear acceleration, body angular acceleration and linear and angular jerk signals, with separate features in the X,Y and Z directions as well as the eucledian magnitude of the resulting vectors. 
 
-The modified dataset in this repository contains only those feature associated with mean and standard deviation operations on the time and frequency domain readings of the various signals. For the frequency domain, the weighted averages of the frequency components (`meanFreq()` in the original dataset) is also included. 
-
-Each row in the table contains 79 such features, 1 activity label and 1 subject identifier. Detailed list is given in section `Data Dictionary`
-
-There are 10299 rows obtained by merging the test and train datasets.
+Only some features are used in the dataset of this repository. In particular, the average and standard deviation of the measured signals, in both time and frequency domains. For the frequency domain, the weighted averages of the frequency components (known as `meanFreq()` in the original dataset) is also included. 
 
 ## Variable name cleanup
 

@@ -1,10 +1,8 @@
-# Human Activity Recognition Using Smartphones Data Set 
+# Modified "Human Activity Recognition Using Smartphones Data Set"
 
 ## Data Set Information
 
-This dataset describes accelerometer and gyroscope signal readings from a group of 30 volunteers performing six different activities. The original complete dataset is described in `UCI HAR Dataset/Readme.md` and `UCI HAR Dataset/features_info.txt`, and technical details on feature construction are also given in those files.
-
-[Reference](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones)
+This dataset describes accelerometer and gyroscope signal readings from a group of 30 volunteers performing six different activities. The original complete dataset can be found in [Reference](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones). Technical details on feature construction can be found in the reference.
 
 ## Running
 
