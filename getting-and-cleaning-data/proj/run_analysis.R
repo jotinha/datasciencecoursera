@@ -50,8 +50,8 @@ createAverageTables <- function(dat) {
 
 saveData <- function(tidyDataAll,tidyDataAverages) {
    #i chose csv for maximum compatibility
-   write.csv2(tidyDataAll,file="tidyDataAll.csv",row.names=F,)
-   write.csv2(tidyDataAverages,file="tidyDataAverages.csv",row.names=F)
+   write.csv2(tidyDataAll,file="tidyDataAll.txt",row.names=F,)
+   write.csv2(tidyDataAverages,file="tidyDataAverages.txt",row.names=F)
 }
 
 train <- loadTable('train')
