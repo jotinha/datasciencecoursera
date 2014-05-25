@@ -52,5 +52,5 @@ The script will
 * merge test and train sets vertically
 * save tabke as comma delimited file `tidyDataAll.txt`
 
-It will then take the averages of each numeric feature for each combination of activities and subjects, and save the result to the comma delimited filed `tidyDataAverages.txt`
+It will then take the averages of each numeric feature for each combination of activities and subjects, and save the result to the comma delimited file `tidyDataAverages.txt`
 
